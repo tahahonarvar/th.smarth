@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH.smarth</title>
+    <link rel="website icon" type="png" href="https://uploadkon.ir/uploads/3b9006_24th.jpg">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    <script src="http://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+    <style>
+        .topnav { 
+  overflow: hidden; 
+  background-color: #0A1128;
+}
+.content { 
+  padding: 5%;
+}
+.card-grid { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-gap: 2rem; 
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.card { 
+  background-color: white; 
+  box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
+}
+.card-title { 
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #034078
+}
+
+
+
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+.logo,h1{
+  display: flex;  
+  background-color: #222222;
+  justify-content:space-between;
+  
+}
+img{
+  width: 70px;
+  height: 70px;
+  margin: 12px;
+}
+body{
+  margin-top: 0;
+}
+.menu{
+  background-color: #299fe4;
+  height: 5px;
+}
+body {
+
+font-family: Arial, sans-serif;
+
+background-color: #222222;
+
+}
+h1 {
+color: #299fe4;
+font-size: 85px;
+}
+.data {
+font-size: 3.2vh;
+margin: 20px 0;
+}
+.healthy {
+color: #00b185;
+}
+.unhealthy,.smart{
+color: #7e1111;   
+}
+table{
+  width: 40vw;
+  font-size: 4vh;
+  color: #bad3e2;
+  margin-left: 2vw;
+  text-align: center;
+  background-color: #299fe410;
+  
+}
+table th{
+  background-color: #11657e9a;
+  
+}
+table td{
+  background-color: #299fe41f;
+  
+}
+#temperature,#humidity,#mq2Value,#aqi,#airQuality{
+color: #bad3e2;
+}
+p{
+color: #bad3e2;
+}
+
+
+@media (max-width:768px){
+
+.logo,h1{
+  display: list-item;  
+  background-color: #222222;
+  justify-content:space-between;
+  
+}
+img{
+  width: 30vw;
+  height: 15vh;
+  
+  margin: 12px;
+}
+body{
+  text-align: center;
+  margin-top: 2vh;
+}
+.menu{
+  display: none;
+}
+h1 {
+font-size: 80px;
+}
+table{
+  width: 96vw;
+  font-size: 4vh;
+  color: #bad3e2;
+  margin-left: 2vw;
+  text-align: center;
+  background-color: #299fe410;
+  
+}
+table th{
+  background-color: #11657e9a;
+}
+table td{
+  background-color: #299fe41f;
+}
+
+}
+    </style>
+</head>
+<body>
+    
+      
+
+    
+    <div class="container">
+        <div class="logo">
+            <img src="https://uploadkon.ir/uploads/3b9006_24th.jpg" alt="logo">
+            
+        <h1>SMART<span class="smart">H</span></h1>
+
+        </div>
+        <div class="menu"></div>
+        
+        <div class="data">
+            <table>
+                <tr>
+                    <th>
+                        وضعیت هوا:
+                    </th>
+                    <th>
+                        <p><span id="healthStatus" class="">--</span></p> 
+                    </th>
+                </tr>
+
+
+
+
+
+                <tr>
+                    <td>
+                        دما هوا:
+                    </td>
+                    <td>
+                        <p><span id="temperature">--</span> &#8451;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        رطوبت هوا: 
+                    </td>
+                    <td>
+                        <p><span id="humidity">--</span> %</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        خروجی سنسور:  
+                    </td>
+                    <td>
+                        <p><span id="mq2Value">--</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        کیفیت هوا:
+                    </td>
+                    <td>
+                        <p><span id="airQuality">--</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        AQI: 
+                    </td>
+                    <td>
+                        <p><span id="aqi">--</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </table>
+            
+              <div class="content">
+                <div class="card-grid">
+                  <div class="card">
+                    <p class="card-title">Temperature</p>
+                    <canvas id="gauge-temperature"></canvas>
+                  </div>
+                  <div class="card">
+                    <p class="card-title">Humidity</p>
+                    <canvas id="gauge-humidity"></canvas>
+                  </div>
+                </div>
+              </div>
+            
+            
+           
+            
+            
+        </div>
+    </div>
+    <script>
+        // Get current sensor readings when the page loads  
+window.addEventListener('load', getReadings);
+
+// Create Temperature Gauge
+var gaugeTemp = new LinearGauge({
+  renderTo: 'gauge-temperature',
+  width: 120,
+  height: 400,
+  units: "Temperature C",
+  minValue: 0,
+  startAngle: 90,
+  ticksAngle: 180,
+  maxValue: 50,
+  colorValueBoxRect: "#049faa",
+  colorValueBoxRectEnd: "#049faa",
+  colorValueBoxBackground: "#f1fbfc",
+  valueDec: 2,
+  valueInt: 2,
+  majorTicks: [
+      "0",
+      "10",
+      "20",
+      "30",
+      "40",
+      "50"
+
+      
+ 
+  ],
+  colorPlate: "#fff",
+  colorBarProgress: "#CC2936",
+  colorBarProgressEnd: "#049faa",
+  borderShadowWidth: 0,
+  borders: false,
+  needleType: "arrow",
+  needleWidth: 2,
+  needleCircleSize: 7,
+  needleCircleOuter: true,
+  needleCircleInner: false,
+  animationDuration: 1500,
+  animationRule: "linear",
+  barWidth: 10,
+}).draw();
+  
+// Create Humidity Gauge
+var gaugeHum = new RadialGauge({
+  renderTo: 'gauge-humidity',
+  width: 300,
+  height: 300,
+  units: "Humidity (%)",
+  minValue: 0,
+  maxValue: 300,
+  colorValueBoxRect: "#049faa",
+  colorValueBoxRectEnd: "#049faa",
+  colorValueBoxBackground: "#f1fbfc",
+  valueInt: 2,
+  majorTicks: [
+      "0",
+      "50",
+      "100",
+      "150",
+      "200",
+      "250",
+      "300"
+
+  ],
+  minorTicks: 5,
+  strokeTicks: true,
+  highlights: [
+      {
+          "from": 250,
+          "to": 300,
+          "color": "#a7028b8a"
+      }
+      
+
+  ],
+  colorPlate: "#fff",
+  borderShadowWidth: 0,
+  borders: false,
+  needleType: "line",
+  colorNeedle: "#007F80",
+  colorNeedleEnd: "#007F80",
+  needleWidth: 2,
+  needleCircleSize: 3,
+  colorNeedleCircleOuter: "#007F80",
+  needleCircleOuter: true,
+  needleCircleInner: false,
+  animationDuration: 1500,
+  animationRule: "linear"
+}).draw();
+
+// Function to get current readings on the webpage when it loads for the first time
+function getReadings(){
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var myObj = JSON.parse(this.responseText);
+      console.log(myObj);
+      var temp = myObj.temperature;
+      var hum = myObj.humidity;
+      gaugeTemp.value = temp;
+      gaugeHum.value = hum;
+    }
+  }; 
+  xhr.open("GET", "/readings", true);
+  xhr.send();
+}
+
+
+
+
+    
+    
+
+    function fetchData() {
+      gaugeTemp.value = data.temperature;
+      gaugeHum.value = data.aqi;
+      fetch('/data')
+      
+      .then(response => response.json())
+      .then(data => {
+        
+          document.getElementById('temperature').textContent = data.temperature;
+          document.getElementById('humidity').textContent = data.humidity;
+          document.getElementById('mq2Value').textContent = data.mq2Value;
+          document.getElementById('aqi').textContent = data.aqi;
+          document.getElementById('airQuality').textContent = data.airQualityStatus;
+          
+          
+          const healthStatus = document.getElementById('healthStatus');
+          healthStatus.textContent = data.healthStatus;
+          if (data.healthStatus === 'خوب') {
+              healthStatus.className = 'healthy';   
+          } else {
+              healthStatus.className = 'unhealthy';
+          }
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }
+  setInterval(fetchData, 10000);
+  fetchData();
+    </script>
+</body>
+</html>
